@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.JediMeditationLinkedList"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "8.JediMeditationQueue", "JediMeditationQueue\8.JediMeditationQueue.csproj", "{9B933D52-5090-4212-ADC6-743D79BE7B76}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9.CokiSkoki", "9.CokiSkoki\9.CokiSkoki.csproj", "{49FE7F23-F2B9-43E7-8190-9DECA9C5C34D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{9B933D52-5090-4212-ADC6-743D79BE7B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B933D52-5090-4212-ADC6-743D79BE7B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B933D52-5090-4212-ADC6-743D79BE7B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49FE7F23-F2B9-43E7-8190-9DECA9C5C34D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49FE7F23-F2B9-43E7-8190-9DECA9C5C34D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49FE7F23-F2B9-43E7-8190-9DECA9C5C34D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49FE7F23-F2B9-43E7-8190-9DECA9C5C34D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
