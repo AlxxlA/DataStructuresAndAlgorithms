@@ -2,7 +2,7 @@
 
 namespace _4.Permutations
 {
-    class Program
+    class Permutation
     {
         static void Main()
         {

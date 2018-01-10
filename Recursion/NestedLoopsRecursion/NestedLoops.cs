@@ -2,7 +2,7 @@
 
 namespace NestedLoopsRecursion
 {
-    class Program
+    class NestedLoops
     {
         static void Main()
         {

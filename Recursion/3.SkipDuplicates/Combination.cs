@@ -2,7 +2,7 @@
 
 namespace _3.SkipDuplicates
 {
-    class Program
+    class Combination
     {
         static void Main()
         {
