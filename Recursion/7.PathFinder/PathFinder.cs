@@ -5,7 +5,9 @@ namespace _7.PathFinder
 {
     public static class PathFinder
     {
-        private static ICollection<Path> allPaths;
+        private static IList<Path> allPaths;
+        private static bool isPathFinded;
+        private static Path path;
 
         public static IEnumerable<Path> FindAllPaths(Maze maze, Position start, Position end)
         {
@@ -39,7 +41,7 @@ namespace _7.PathFinder
             return allPaths;
         }
 
-        private static void FindAllPaths(Maze maze, Position currentPosition, Position end, HashSet<Position> visited, Path path)
+        private static void FindAllPaths(Maze maze, Position currentPosition, Position end, HashSet<Position> visited, Path currentPath)
         {
             if (!maze.IsValidPosition(currentPosition))
             {
@@ -56,27 +58,104 @@ namespace _7.PathFinder
 
             if (currentPosition.Equals(end))
             {
-                path.AddPosition(currentPosition);
-                allPaths.Add(new Path(path.AllPositions));
-                path.RemoveLast();
+                currentPath.AddPosition(currentPosition);
+                allPaths.Add(new Path(currentPath.AllPositions));
+                currentPath.RemoveLast();
                 return;
             }
 
             visited.Add(currentPosition);
-            path.AddPosition(currentPosition);
+            currentPath.AddPosition(currentPosition);
 
             var leftPosition = new Position(currentPosition.X, currentPosition.Y - 1);
             var rightPosition = new Position(currentPosition.X, currentPosition.Y + 1);
             var upPosition = new Position(currentPosition.X - 1, currentPosition.Y);
             var downPosition = new Position(currentPosition.X + 1, currentPosition.Y);
 
-            FindAllPaths(maze, leftPosition, end, visited, path);
-            FindAllPaths(maze, rightPosition, end, visited, path);
-            FindAllPaths(maze, upPosition, end, visited, path);
-            FindAllPaths(maze, downPosition, end, visited, path);
+            FindAllPaths(maze, leftPosition, end, visited, currentPath);
+            FindAllPaths(maze, rightPosition, end, visited, currentPath);
+            FindAllPaths(maze, upPosition, end, visited, currentPath);
+            FindAllPaths(maze, downPosition, end, visited, currentPath);
 
             visited.Remove(currentPosition);
-            path.RemoveLast();
+            currentPath.RemoveLast();
+        }
+
+        public static Path FindPath(Maze maze, Position start, Position end)
+        {
+            if (!maze.IsPassablePosition(start))
+            {
+                throw new ArgumentException("Start position is invalid.");
+            }
+            if (!maze.IsPassablePosition(end))
+            {
+                throw new ArgumentException("End position is unreachable.");
+            }
+            if (!maze.IsValidPosition(start))
+            {
+                throw new ArgumentException("Given start position is out of maze.");
+            }
+            if (!maze.IsValidPosition(end))
+            {
+                throw new ArgumentException("Given end position is out of maze.");
+            }
+
+            isPathFinded = false;
+            path = new Path();
+
+            // DFS method to find all paths
+            FindPath(maze, start, end, new HashSet<Position>(), new Path());
+
+            if (!isPathFinded)
+            {
+                throw new ArgumentException("End position is unreachable from givven start position.");
+            }
+
+            return path; // we only waht first finded currentPath
+        }
+
+        private static void FindPath(Maze maze, Position currentPosition, Position end, HashSet<Position> visited, Path currentPath)
+        {
+            if (isPathFinded)
+            {
+                return;
+            }
+            if (!maze.IsValidPosition(currentPosition))
+            {
+                return;
+            }
+            if (visited.Contains(currentPosition))
+            {
+                return;
+            }
+            if (!maze.IsPassablePosition(currentPosition))
+            {
+                return;
+            }
+
+            if (currentPosition.Equals(end))
+            {
+                currentPath.AddPosition(currentPosition);
+                path = new Path(currentPath.AllPositions);
+                isPathFinded = true;
+                return;
+            }
+
+            visited.Add(currentPosition);
+            currentPath.AddPosition(currentPosition);
+
+            var leftPosition = new Position(currentPosition.X, currentPosition.Y - 1);
+            var rightPosition = new Position(currentPosition.X, currentPosition.Y + 1);
+            var upPosition = new Position(currentPosition.X - 1, currentPosition.Y);
+            var downPosition = new Position(currentPosition.X + 1, currentPosition.Y);
+
+            FindPath(maze, leftPosition, end, visited, currentPath);
+            FindPath(maze, rightPosition, end, visited, currentPath);
+            FindPath(maze, upPosition, end, visited, currentPath);
+            FindPath(maze, downPosition, end, visited, currentPath);
+
+            visited.Remove(currentPosition);
+            currentPath.RemoveLast();
         }
     }
 }
