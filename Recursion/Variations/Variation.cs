@@ -10,7 +10,7 @@ namespace Variations
             int n = int.Parse(Console.ReadLine());
             int k = int.Parse(Console.ReadLine());
             var arr = new[] { "hi", "a", "b" };
-            Variation(n, k, new int[k], arr);
+            Variations(n, k, new int[k], arr);
         }
 
         private static void Variations<T>(int n, int k, int[] indexes, T[] arr, int depth = 0)
@@ -23,7 +23,7 @@ namespace Variations
             for (int i = 0; i < n; i++)
             {
                 indexes[depth] = i;
-                Variation(n, k, indexes, arr, depth + 1);
+                Variations(n, k, indexes, arr, depth + 1);
             }
         }
     }
