@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace _9.CokiSkoki
 {
@@ -14,26 +12,45 @@ namespace _9.CokiSkoki
 
             var buildings = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
-            var currentMax = buildings[buildings.Length - 1];
-            var currentMaxJumps = 0;
+            var currentMax = buildings[n - 1];
 
-            var jumps = new int[buildings.Length];
+            var jumps = new int[n];
 
-            for (int i = buildings.Length - 1; i >= 0; i--)
+            var stack = new Stack<int>();
+
+            for (int i = n - 1; i >= 0; i--)
             {
-                var current = buildings[i];
-                if (currentMax < current)
+                int current = buildings[i];
+
+                if (stack.Count == 0)
                 {
                     currentMax = current;
-                    currentMaxJumps = 0;
+                    jumps[i] = 0;
                 }
-                else if (current < currentMax)
+                else if (current >= currentMax)
                 {
-
+                    stack = new Stack<int>();
+                    currentMax = current;
+                    jumps[i] = 0;
                 }
+                else
+                {
+                    int index = i + 1;
+                    foreach (var item in stack)
+                    {
+                        if (current < item)
+                        {
+                            jumps[i] = jumps[index] + 1;
+                            break;
+                        }
+                        index++;
+                    }
+                }
+                stack.Push(buildings[i]);
             }
 
-
+            Console.WriteLine(jumps.Max());
+            Console.WriteLine(string.Join(" ", jumps));
         }
     }
 }
