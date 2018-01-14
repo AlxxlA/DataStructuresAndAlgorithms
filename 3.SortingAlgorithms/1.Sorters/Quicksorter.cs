@@ -18,8 +18,8 @@ namespace _1.Sorters
             }
 
             var pivotIndex = start;
-            var pivot = collection[pivotIndex];
 
+            var pivot = collection[pivotIndex];
             var storeIndex = pivotIndex + 1;
 
             for (int i = pivotIndex + 1; i < end; i++)

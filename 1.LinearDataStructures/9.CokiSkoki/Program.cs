@@ -8,64 +8,32 @@ namespace _9.CokiSkoki
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            var arr = new[] { 1, 6, 4, 2, 5 };
+            int n = int.Parse(Console.ReadLine());
 
-            Sort(arr);
+            var buildings = Console.ReadLine().Split(' ').Select(int.Parse).ToArray();
 
-            Console.WriteLine(string.Join(" ", arr));
-        }
+            var currentMax = buildings[buildings.Length - 1];
+            var currentMaxJumps = 0;
 
-        static void Sort(int[] arr)
-        {
-            Quicksort(arr, 0, arr.Length - 1);
-        }
+            var jumps = new int[buildings.Length];
 
-        static void Quicksort(int[] arr, int lo, int hi)
-        {
-            if (lo < hi)
+            for (int i = buildings.Length - 1; i >= 0; i--)
             {
-                int p = Partition(arr, lo, hi);
-                Quicksort(arr, lo, p);
-                Quicksort(arr, p + 1, hi);
-            }
-        }
-
-        private static int Partition(int[] arr, int lo, int hi)
-        {
-            int pivot = arr[lo];
-
-            int i = lo - 1;
-            int j = hi + 1;
-
-            while (true)
-            {
-                do
+                var current = buildings[i];
+                if (currentMax < current)
                 {
-                    i++;
-                } while (i < hi && arr[i] < pivot);
-
-                do
+                    currentMax = current;
+                    currentMaxJumps = 0;
+                }
+                else if (current < currentMax)
                 {
-                    j--;
-                } while (j >= lo && arr[j] > pivot);
 
-                if (i >= j)
-                {
-                    break;
                 }
             }
 
-            Swap(arr, i, j);
-            return j;
-        }
 
-        private static void Swap(int[] arr, int i, int j)
-        {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
         }
     }
 }
