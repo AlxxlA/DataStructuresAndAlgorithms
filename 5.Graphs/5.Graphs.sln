@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2020
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLibrary", "GraphLibrary\GraphLibrary.csproj", "{F1AD8308-0922-4261-B1FA-3F227C7E1785}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphTest", "GraphTest\GraphTest.csproj", "{653E30E6-DC7B-4B91-80F7-1BBF844F7DFD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TopologicalSorting", "TopologicalSorting\TopologicalSorting.csproj", "{EB8F1548-8914-4F9E-B947-82EF4A83557E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dijkstra", "Dijkstra\Dijkstra.csproj", "{C67456A5-6E44-4202-A1AD-4A3646B041A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Resources", "Resources\Resources.csproj", "{DC91DEF5-D900-46AF-8223-B1A7BD747C0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Diameter", "Diameter\Diameter.csproj", "{F7B51815-3E17-4451-A902-06902F609274}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1AD8308-0922-4261-B1FA-3F227C7E1785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1AD8308-0922-4261-B1FA-3F227C7E1785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1AD8308-0922-4261-B1FA-3F227C7E1785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1AD8308-0922-4261-B1FA-3F227C7E1785}.Release|Any CPU.Build.0 = Release|Any CPU
+		{653E30E6-DC7B-4B91-80F7-1BBF844F7DFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{653E30E6-DC7B-4B91-80F7-1BBF844F7DFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{653E30E6-DC7B-4B91-80F7-1BBF844F7DFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{653E30E6-DC7B-4B91-80F7-1BBF844F7DFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB8F1548-8914-4F9E-B947-82EF4A83557E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB8F1548-8914-4F9E-B947-82EF4A83557E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB8F1548-8914-4F9E-B947-82EF4A83557E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB8F1548-8914-4F9E-B947-82EF4A83557E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C67456A5-6E44-4202-A1AD-4A3646B041A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C67456A5-6E44-4202-A1AD-4A3646B041A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C67456A5-6E44-4202-A1AD-4A3646B041A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C67456A5-6E44-4202-A1AD-4A3646B041A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC91DEF5-D900-46AF-8223-B1A7BD747C0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC91DEF5-D900-46AF-8223-B1A7BD747C0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC91DEF5-D900-46AF-8223-B1A7BD747C0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC91DEF5-D900-46AF-8223-B1A7BD747C0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7B51815-3E17-4451-A902-06902F609274}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7B51815-3E17-4451-A902-06902F609274}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7B51815-3E17-4451-A902-06902F609274}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7B51815-3E17-4451-A902-06902F609274}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31BB4C5D-1988-49FA-AE62-3777F8228F23}
+	EndGlobalSection
+EndGlobal
