@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1.PrimeNumbers", "1.PrimeNumbers\1.PrimeNumbers.csproj", "{90E60BC4-5BE2-463A-974B-45241A84F158}"
 EndProject
@@ -26,6 +26,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.ActionsOrder", "10.ActionsOrder\10.ActionsOrder.csproj", "{2C32640D-B7D1-49DC-822C-EB2E882A2E6E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.BracketMaster", "11.BracketMaster\11.BracketMaster.csproj", "{B9440E7E-1F5E-4283-83CF-116A1D452D9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12.CatalanNumbers", "12.CatalanNumbers\12.CatalanNumbers.csproj", "{77FFCCF3-9634-4A8F-A66D-F0B639805901}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77FFCCF3-9634-4A8F-A66D-F0B639805901}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77FFCCF3-9634-4A8F-A66D-F0B639805901}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77FFCCF3-9634-4A8F-A66D-F0B639805901}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77FFCCF3-9634-4A8F-A66D-F0B639805901}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Numerics;
 
-namespace _11.BracketMaster
+namespace _12.CatalanNumbers
 {
     class Program
     {
@@ -11,31 +11,9 @@ namespace _11.BracketMaster
         {
             int n = int.Parse(Console.ReadLine());
 
-            if (n % 2 == 1 || n == 0)
-            {
-                Console.WriteLine(0);
-                return;
-            }
+            memo = new BigInteger[n + 1];
 
-            memo = new BigInteger[n];
-            var catalans = AllCatalans(n);
-
-            var big = BigInteger.Pow(4, n / 2);
-            BigInteger result = BigInteger.Multiply(big, catalans[n / 2]);
-
-            Console.WriteLine(result);
-        }
-
-        private static BigInteger[] AllCatalans(int n)
-        {
-            var result = new BigInteger[n];
-
-            for (int i = 0; i < n; i++)
-            {
-                result[i] = Catalan(i);
-            }
-
-            return result;
+            Console.WriteLine(Catalan(n));
         }
 
         private static BigInteger Catalan(int n)
