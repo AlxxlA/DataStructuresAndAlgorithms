@@ -1,26 +1,36 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace _4.Permutations
 {
     class Permutation
     {
+        private static List<string> results = new List<string>();
+        private static int[] arr;
+
         static void Main()
         {
-            var arr = new[] { 1, 2, 3 };
-            Permutations(arr.Length, arr);
+            var n = int.Parse(Console.ReadLine());
+            arr = Enumerable.Range(1, n).ToArray();
+            Permutations(n);
+
+            results.Sort();
+
+            Console.WriteLine(string.Join("\n", results));
         }
 
-        private static void Permutations<T>(int n, T[] arr)
+        private static void Permutations(int n)
         {
             if (n == 1)
             {
-                Console.WriteLine(string.Join(" ", arr));
+                results.Add(string.Join(" ", arr));
                 return;
             }
 
             for (int i = 0; i < n - 1; i++)
             {
-                Permutations(n - 1, arr);
+                Permutations(n - 1);
                 if (n % 2 == 0)
                 {
                     var temp = arr[n - 1];
@@ -34,7 +44,7 @@ namespace _4.Permutations
                     arr[0] = temp;
                 }
             }
-            Permutations(n - 1, arr);
+            Permutations(n - 1);
         }
     }
 }

@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "9.CokiSkoki", "9.CokiSkoki\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10.ActionsOrder", "10.ActionsOrder\10.ActionsOrder.csproj", "{2C32640D-B7D1-49DC-822C-EB2E882A2E6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11.BracketMaster", "11.BracketMaster\11.BracketMaster.csproj", "{B9440E7E-1F5E-4283-83CF-116A1D452D9F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{2C32640D-B7D1-49DC-822C-EB2E882A2E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C32640D-B7D1-49DC-822C-EB2E882A2E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C32640D-B7D1-49DC-822C-EB2E882A2E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9440E7E-1F5E-4283-83CF-116A1D452D9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

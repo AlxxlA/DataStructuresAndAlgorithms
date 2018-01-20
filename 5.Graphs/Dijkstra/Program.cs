@@ -44,11 +44,11 @@ namespace Dijkstra
             Console.WriteLine(Math.Min(firstDistance, senondDistance));
         }
 
-        private static int FindShortestPath(Graph graph, int start, int end, int firstException, int secondExeption)
+        private static double FindShortestPath(Graph graph, int start, int end, int firstException, int secondExeption)
         {
             foreach (var city in graph.Cities.Values)
             {
-                city.DistatnceTo = int.MaxValue;
+                city.DistatnceTo = double.PositiveInfinity;
             }
 
             var startNode = graph.Cities[start];
@@ -66,24 +66,22 @@ namespace Dijkstra
             {
                 var currentCity = queue.Dequeue();
 
-                if (currentCity.DistatnceTo == int.MaxValue)
+                currentCity.IsProccesed = true;
+                if (double.IsPositiveInfinity(currentCity.DistatnceTo))
                 {
                     break;
-                }
-                if (currentCity.IsProccesed)
-                {
-                    continue;
                 }
 
                 foreach (var edge in currentCity.Links.Values)
                 {
                     var neighbour = edge.Target;
 
-                    if (neighbour.DistatnceTo > currentCity.DistatnceTo + edge.Weight
+                    if (!neighbour.IsProccesed && neighbour.DistatnceTo > currentCity.DistatnceTo + edge.Weight
                         && neighbour.Value != firstException && neighbour.Value != secondExeption)
                     {
                         queue.Remove(neighbour);
                         neighbour.DistatnceTo = currentCity.DistatnceTo + edge.Weight;
+                        neighbour.Previous = currentCity;
                         queue.Add(neighbour);
                     }
                 }
@@ -173,7 +171,9 @@ namespace Dijkstra
 
         public int Value { get; set; }
 
-        public int DistatnceTo { get; set; }
+        public double DistatnceTo { get; set; }
+
+        public Node Previous { get; set; }
 
         public bool IsProccesed { get; set; }
 
@@ -200,7 +200,7 @@ namespace Dijkstra
             this.Target = target;
         }
 
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
         public Node Target { get; set; }
     }

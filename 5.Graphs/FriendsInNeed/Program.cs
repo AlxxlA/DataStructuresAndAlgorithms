@@ -1,75 +1,100 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Wintellect.PowerCollections;
 
-namespace Diameter
+namespace FriendsInNeed
 {
     class Program
     {
         static void Main()
         {
-            int n = int.Parse(Console.ReadLine());
+            var args = Console.ReadLine().Split().Select(int.Parse).ToList();
+
+            int nodes = args[0];
+            int edges = args[1];
+            int hospitalsCount = args[2];
+
+            var starts = new HashSet<int>(Console.ReadLine().Split().Select(int.Parse));
 
             var graph = new Graph();
 
-            FillGraph(graph, n);
+            FillGraph(graph, nodes);
+            AddConnections(graph, edges);
 
-            AddConnections(graph, n - 1);
+            var min = double.MaxValue;
+            foreach (var start in starts)
+            {
+                var result = FindShortestPath(graph, start, starts);
 
-            var longestRandom = FindLongestPath(graph, 1);
+                if (min > result)
+                {
+                    min = result;
+                }
 
-            var longestPath = FindLongestPath(graph, longestRandom);
+            }
 
-            Console.WriteLine(graph.Cities[longestPath].DistatnceTo);
+            Console.WriteLine(min);
         }
 
-        private static int FindLongestPath(Graph graph, int start)
+        private static double FindShortestPath(Graph graph, int start, HashSet<int> invalidPoints)
         {
             foreach (var city in graph.Cities.Values)
             {
-                city.DistatnceTo = 0;
+                city.DistatnceTo = double.PositiveInfinity;
                 city.IsProccesed = false;
             }
 
             var startNode = graph.Cities[start];
             startNode.DistatnceTo = 0;
 
-            var stack = new Stack<Node>();
-
-            stack.Push(startNode);
-
-            while (stack.Count > 0)
-            {
-                var currentNode = stack.Pop();
-
-                currentNode.IsProccesed = true;
-
-                foreach (var edge in currentNode.Links.Values)
-                {
-                    var child = edge.Target;
-                    if (!child.IsProccesed)
-                    {
-                        child.DistatnceTo += currentNode.DistatnceTo + edge.Weight;
-                        stack.Push(child);
-                    }
-                }
-            }
-
-            var maxDistance = int.MinValue;
-            var maxNode = int.MinValue;
+            var queue = new PriorityQueue<Node>();
 
             foreach (var city in graph.Cities.Values)
             {
-                if (city.DistatnceTo > maxDistance)
+                queue.Enqueue(city);
+                city.IsProccesed = false;
+            }
+
+            while (queue.Count > 0)
+            {
+                var currentCity = queue.Dequeue();
+
+                currentCity.IsProccesed = true;
+                if (double.IsPositiveInfinity(currentCity.DistatnceTo))
                 {
-                    maxDistance = city.DistatnceTo;
-                    maxNode = city.Value;
+                    break;
+                }
+
+                foreach (var edge in currentCity.Links.Values)
+                {
+                    var neighbour = edge.Target;
+
+                    if (!neighbour.IsProccesed && neighbour.DistatnceTo > currentCity.DistatnceTo + edge.Weight)
+                    {
+                        queue.Remove(neighbour);
+                        neighbour.DistatnceTo = currentCity.DistatnceTo + edge.Weight;
+                        neighbour.Previous = currentCity;
+                        queue.Add(neighbour);
+                    }
+                }
+
+                currentCity.IsProccesed = true;
+            }
+
+            double result = 0;
+
+            foreach (var node in graph.Cities.Values)
+            {
+                if (!invalidPoints.Contains(node.Value))
+                {
+                    result += node.DistatnceTo;
                 }
             }
 
-            return maxNode;
+            return result;
         }
 
         private static void AddConnections(Graph graph, int m)
@@ -89,7 +114,7 @@ namespace Diameter
 
         private static void FillGraph(Graph graph, int n)
         {
-            for (int i = 0; i < n; i++)
+            for (int i = 1; i <= n; i++)
             {
                 graph.AddNode(i);
             }
@@ -149,7 +174,9 @@ namespace Diameter
 
         public int Value { get; set; }
 
-        public int DistatnceTo { get; set; }
+        public double DistatnceTo { get; set; }
+
+        public Node Previous { get; set; }
 
         public bool IsProccesed { get; set; }
 
@@ -176,7 +203,7 @@ namespace Diameter
             this.Target = target;
         }
 
-        public int Weight { get; set; }
+        public double Weight { get; set; }
 
         public Node Target { get; set; }
     }
