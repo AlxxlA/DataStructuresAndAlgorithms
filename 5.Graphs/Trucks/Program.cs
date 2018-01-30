@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Bridges
+namespace Trucks
 {
     class Program
     {
@@ -17,20 +19,13 @@ namespace Bridges
 
             FillGraph(graph, nodesCount);
 
-            var input = new List<string>();
 
-            for (int i = 0; i < edgesCount; i++)
-            {
-                input.Add(Console.ReadLine());
-            }
 
-            int minWeight = int.Parse(Console.ReadLine());
+            AddConnections(graph, edgesCount);
 
-            AddConnections(graph, input, minWeight);
+            //  var result = MinBridges(graph, minWeight);
 
-            var result = MinBridges(graph, minWeight);
-
-            Console.WriteLine(result);
+            //   Console.WriteLine(result);
         }
 
         private static int MinBridges(Graph graph, int weight)
@@ -67,21 +62,18 @@ namespace Bridges
             }
         }
 
-        private static void AddConnections(Graph graph, List<string> input, int minWeight)
+        private static void AddConnections(Graph graph, int m)
         {
-            foreach (var line in input)
+            for (int i = 0; i < m; i++)
             {
-                var args = line.Split().Select(int.Parse).ToArray();
+                var args = Console.ReadLine().Split().Select(int.Parse).ToArray();
 
                 var from = args[0];
                 var to = args[1];
                 var weight = args[2];
 
-                if (weight >= minWeight)
-                {
-                    graph.AddConnection(from, to, weight);
-                    graph.AddConnection(to, from, weight);
-                }
+                graph.AddConnection(from, to, weight);
+                graph.AddConnection(to, from, weight);
             }
         }
 

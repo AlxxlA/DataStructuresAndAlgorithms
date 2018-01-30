@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2020
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphLibrary", "GraphLibrary\GraphLibrary.csproj", "{F1AD8308-0922-4261-B1FA-3F227C7E1785}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FriendsInNeed", "FriendsInNeed\FriendsInNeed.csproj", "{A9F6B79A-A033-4DE9-B6E9-BDD4DF269DCE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridges", "Bridges\Bridges.csproj", "{F413E8C2-6F2B-4C44-8DD1-56EF7EC05791}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Elevators", "Elevators\Elevators.csproj", "{2A4A6AEA-C6BB-4D85-9143-ECCFF6A3FE79}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trucks", "Trucks\Trucks.csproj", "{80D7F52D-9A50-4C07-AED6-195ACB38C779}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{F413E8C2-6F2B-4C44-8DD1-56EF7EC05791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F413E8C2-6F2B-4C44-8DD1-56EF7EC05791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F413E8C2-6F2B-4C44-8DD1-56EF7EC05791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A4A6AEA-C6BB-4D85-9143-ECCFF6A3FE79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A4A6AEA-C6BB-4D85-9143-ECCFF6A3FE79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A4A6AEA-C6BB-4D85-9143-ECCFF6A3FE79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A4A6AEA-C6BB-4D85-9143-ECCFF6A3FE79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80D7F52D-9A50-4C07-AED6-195ACB38C779}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80D7F52D-9A50-4C07-AED6-195ACB38C779}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80D7F52D-9A50-4C07-AED6-195ACB38C779}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80D7F52D-9A50-4C07-AED6-195ACB38C779}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
